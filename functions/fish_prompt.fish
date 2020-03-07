@@ -18,7 +18,7 @@ function kubectl_status
   set -l ns (kubectl config view -o "jsonpath={.contexts[?(@.name==\"$ctx\")].context.namespace}")
   [ -z $ns ]; and set -l ns 'default'
 
-  echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"($ctx$KUBECTL_PROMPT_SEPARATOR$ns)"
+  echo (set_color cyan)$KUBECTL_PROMPT_ICON(set_color white)"$ctx$KUBECTL_PROMPT_SEPARATOR$ns"
 end
 
 
@@ -28,7 +28,7 @@ function fish_prompt
   set -l git (set_color green)(git rev-parse --abbrev-ref HEAD 2>/dev/null; or echo "")
   set -l cursor (set_color red)"❯"(set_color yellow)"❯"(set_color green)"❯ "
 
-  set -l kube (set_color white)(kubectl_status)
+  set -l kube (kubectl_status)
 
   echo $dir $time $git $kube
   echo $cursor

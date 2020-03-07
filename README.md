@@ -6,12 +6,14 @@ Based on https://github.com/Ladicle/fish-kubectl-prompt, just moved kube context
 
 If you want to customize, override the following environment variables.
 
+```
 set KUBECTL_PROMPT_ICON "⎈"
 set KUBECTL_PROMPT_SEPARATOR "/"
+```
 
 ## Install
 
-With [fisherman]
+With [fisher](https://github.com/jorgebucaran/fisher)
 
 ```
 fisher add snt/fish-kubectl-prompt
